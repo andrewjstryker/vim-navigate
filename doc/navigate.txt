@@ -1,0 +1,111 @@
+Last change:  2004 April 4
+
+
+		  VIM REFERENCE MANUAL    by Andrew Stryker
+
+*Navigate* *navigate* *navigate.vim*
+
+Most Vim users control the cursor with the h, j, k, and l keys in normal mode.
+The Navigate plugin makes use of those unused cursor movement keys by defining
+four navigation "states".
+
+CONTENTS						*navigate-contents*
+
+1. Overview of defined mappings  |navigate-states|
+2. Configuration  |navigate-configuration|
+
+The functionality mentioned here is a plugin, see |add-plugin|.  You can avoid
+loading this plugin by setting a "navigate_loaded" variable in your |vimrc|
+file: >
+
+	let g:navigate_loaded = 1
+
+NOTE:  This plugin changes the function of commonly used keys, such as the
+cursor keys.  Further, it will conflict with plugins that make use of it.
+
+{Vi does not have any of this}
+
+==============================================================================
+                                                        *navigate-normal*
+                                                        *navigate-buffer*
+                                                        *navigate-windows*
+                                                        *navigate-quickfix*
+1. Navigate states                                      *navigate-states*
+
+The following table shows the mappings in effect for each of the navigate
+states.  The column labeled "Normal" shows the default bindings.  These
+mappings are only in effect while in normal mode.
+
+Normal		Buffer		Window		Quick Fix ~
+<Del>		:bdelete<CR>	<C-W>q		<Del>
+<Home>		:bfirst<CR>	<C-W>t		:cfirst<CR>
+<End>		:blast<CR>	<C-W>b		:clast<CR>
+<PageUp>	<PageUp>	<C-W>W		<PageUp>
+<PageDown>	<PageDown>	<C-W>w		<PageDown>
+<Up>		:buffer #<CR>	<C-W><Up>	:clist<CR>
+<Left>		:bprevious<CR>	<C-W><Left>	:cprevious<CR>
+<Right>		:bnext<CR>	<C-W><Right>	:cnext<CR>
+<Down>		:buffer 	<C-W><Down>	<Down>
+
+There are two ways to select the navigation state.  Within gVim, there are
+menu option under Plugin -> Navigate to select navigate states.  The navigate
+plugin also defines two functions to cycle through navigate states.  The
+functions are automatically mapped to <Leader>n and <Leader>N, though this can
+be changed.  <Leader>n cycles Normal -> Buffer -> Window -> Quick Fix.
+<Leader>N cycles in the reverse direction.  Typically, <Leader> is the "\"
+character.  See |<Leader>| for details.
+
+==============================================================================
+						      *navigate_loaded*
+						      *navigate_state*
+						      *navigate_no_announce*
+						      *navigate_top_menu*
+2. Configuration                                      *navigate-configuration*
+
+The Navigate plugin defines two configurable mappings and four configurable
+variables.
+
+Mapping to the NavigateCycle and ReverseNavigateCycle functions overrides the
+mapping to <Leader>n and <Leader>N, respectively.  For example, inserting >
+
+	nmap <Tab> <Plug>NavigateCycle
+
+into a |vimrc| file, will map the Navigate function to the <Tab> key when in
+normal mode (see |nmap|).  Pressing the <Tab> key will then cycle through the
+navigate states.
+
+The are three variables that can be used to control the Navigate plugin are:
+
+Variable			Purpose ~
+navigate_loaded			surpresses the plugin
+navigate_state			sets the start-up navigate state
+navigate_no_announce		surpress the "X navigate" message when
+				changing navigate states (0 - do not surpress,
+				otherwise surpress)
+navigate_top_menu		set the root of the menu structure
+
+Each of these variables can be set in a |vimrc| file.  For example, >
+
+	:let navigate_no_announce = 0
+
+will surpress the announcements when changing navigate states.
+
+The navigate_state variable can take the following settings:
+
+Setting		Meaning ~
+0		enter the |navigate-normal| state next (default)
+1		enter the |navigate-buffer| state next
+2		enter the |navigate-window| state next
+3		enter the |navigate-quickfix| state next
+other		enter the |navigate-normal| state next
+
+As an example, setting navigate_state to 1 in the |vimrc| file will cause
+Vim to start in the |navigate-buffer| state.
+
+The navigate_top_menu needs to be a string that ends with a period, such as >
+
+	let g:navigate_top_menu = "Plugin."
+
+See |:menu| for details about the defining the menu structure.
+
+vim:ft=help:tw=78:sw=8:noet
