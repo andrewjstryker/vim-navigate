@@ -1,4 +1,4 @@
-Last change:  2004 April 4
+Last change:  2016 November 26
 
 
 		  VIM REFERENCE MANUAL    by Andrew Stryker
@@ -21,7 +21,7 @@ file: >
 	let g:navigate_loaded = 1
 
 NOTE:  This plugin changes the function of commonly used keys, such as the
-cursor keys.  Further, it will conflict with plugins that make use of it.
+cursor keys.  Further, it may conflict with plugins remap cursor keys.
 
 {Vi does not have any of this}
 
