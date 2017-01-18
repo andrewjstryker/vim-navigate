@@ -54,19 +54,19 @@ if has("gui")
   endif
   silent noremenu Navigate.Normal <SID>NormalNavigate
   silent noremap <SID>NormalNavigate
-	\ :call <SID>NormalNavigate(g:navigate_announce)<CR>
+        \ :call <SID>NormalNavigate(g:navigate_announce)<CR>
   silent noremenu Navigate.Tabs <SID>BufferTabs
   silent noremap <SID>BufferTabs
-	\ :call <SID>BufferTabs(g:navigate_announce)<CR>
+        \ :call <SID>BufferTabs(g:navigate_announce)<CR>
   silent noremenu Navigate.Buffers <SID>BufferNavigate
   silent noremap <SID>BufferNavigate
-	\ :call <SID>BufferNavigate(g:navigate_announce)<CR>
+        \ :call <SID>BufferNavigate(g:navigate_announce)<CR>
   silent noremenu Navigate.Windows <SID>WindowNavigate
   silent noremap <SID>WindowNavigate
-	\ :call <SID>WindowNavigate(g:navigate_announce)<CR>
+        \ :call <SID>WindowNavigate(g:navigate_announce)<CR>
   silent noremenu Navigate.Quick\ Fix <SID>QuickFixNavigate
   silent noremap <SID>QuickFixNavigate
-	\ :call <SID>QuickFixNavigate(g:navigate_announce)<CR>
+        \ :call <SID>QuickFixNavigate(g:navigate_announce)<CR>
 endif
 
 function! s:NormalNavigate(announce)
