@@ -19,7 +19,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 " total number of defined navigate states
-let s:defined_states = 4
+let s:defined_states = 6
 
 " leave key mappings alone as a safe default choice (and store this locally)
 if exists("g:navigate_state")
@@ -64,6 +64,9 @@ if has("gui")
   silent noremenu Navigate.Windows <SID>WindowNavigate
   silent noremap <SID>WindowNavigate
         \ :call <SID>WindowNavigate(g:navigate_announce)<CR>
+  silent noremenu Navigate.Tabs <SID>TabNavigate
+  silent noremap <SID>TabNavigate
+        \ :call <SID>TabNavigate(g:navigate_announce)<CR>
   silent noremenu Navigate.Quick\ Fix <SID>QuickFixNavigate
   silent noremap <SID>QuickFixNavigate
         \ :call <SID>QuickFixNavigate(g:navigate_announce)<CR>
@@ -85,16 +88,16 @@ function! s:NormalNavigate(announce)
   let s:state = 0
 endfunction
 
-function! s:BufferTabs(announce)
+function! s:TabNavigate(announce)
   noremap <Del> :tabclose<CR>
   noremap <Home> :tabfirst<CR>
   noremap <End> :tablast<CR>
-  noremap <PageUp> <PageUp>
-  noremap <PageDown> <PageDown>
-  noremap <Up> <Up>
+  noremap <PageUp> :tabmove -<CR>
+  noremap <PageDown> :tabmove +<CR>
+  noremap <Up> :tabnew<CR>
   noremap <Left> :tabprevious<CR>
   noremap <Right> :tabnext<CR>
-  noremap <Down> :tabonly<CR>
+  noremap <Down> :tabs<CR>
   if a:announce
     echo "Tab navigation"
   endif
@@ -151,7 +154,7 @@ endfunction
 
 function! s:ChangeState(announce)
   if s:state == 1
-    call s:BufferTabs(a:announce)
+    call s:TabNavigate(a:announce)
   elseif s:state == 2
     call s:BufferNavigate(a:announce)
   elseif s:state == 3
