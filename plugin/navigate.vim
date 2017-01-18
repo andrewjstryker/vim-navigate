@@ -169,7 +169,7 @@ endfunction
 
 function! s:Cycle(announce)
   let s:state = s:state + 1
-  if s:state >= s:defined_states
+  if s:state > s:defined_states
     let s:state = 0
   endif
   call s:ChangeState(a:announce)
@@ -178,7 +178,7 @@ endfunction
 function! s:ReverseCycle(announce)
   let s:state = s:state - 1
   if s:state < 0
-    let s:state = s:defined_states - 1
+    let s:state = s:defined_states
   endif
   call s:ChangeState(a:announce)
 endfunction
