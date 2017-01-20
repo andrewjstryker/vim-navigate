@@ -19,7 +19,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 " total number of defined navigate states
-let s:defined_states = 6
+let s:defined_states = 5
 
 " leave key mappings alone as a safe default choice (and store this locally)
 if exists("g:navigate_state")
