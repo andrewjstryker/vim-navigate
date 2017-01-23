@@ -9,7 +9,8 @@ a document. This plugin maps the
 Most Vim users control the cursor with the h, j, k, and l keys in normal mode.
 The Navigate plugin defines "navigation states" that will allow you 
 
-# TODO
 
-Reimplement navigation states usings lists. Should result in an easier to use
-API and a more robust foundation.
+## License
+
+Copyright (c) Andrew Stryker. Distributed under the same terms as Vim itself.
+See `:help license`.

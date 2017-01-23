@@ -1,5 +1,5 @@
 Tasks to complete before first public release:
 
-- [ ] License file
+- [X] License file
 - [ ] Finish README file
 - [ ] Update documentation
