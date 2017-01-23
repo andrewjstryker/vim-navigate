@@ -3,4 +3,4 @@ Tasks to complete before first public release:
 - [X] License file
 - [ ] Finish README file
 - [X] Update documentation
-- [ ] Generate a help tags file
+- [X] Generate a help tags file
