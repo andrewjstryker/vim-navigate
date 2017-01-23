@@ -1,0 +1,15 @@
+Navigate	navigate.txt	/*Navigate*
+navigate	navigate.txt	/*navigate*
+navigate-buffer	navigate.txt	/*navigate-buffer*
+navigate-configuration	navigate.txt	/*navigate-configuration*
+navigate-contents	navigate.txt	/*navigate-contents*
+navigate-normal	navigate.txt	/*navigate-normal*
+navigate-quickfix	navigate.txt	/*navigate-quickfix*
+navigate-states	navigate.txt	/*navigate-states*
+navigate-tab	navigate.txt	/*navigate-tab*
+navigate-window	navigate.txt	/*navigate-window*
+navigate.vim	navigate.txt	/*navigate.vim*
+navigate_announce	navigate.txt	/*navigate_announce*
+navigate_loaded	navigate.txt	/*navigate_loaded*
+navigate_state	navigate.txt	/*navigate_state*
+navigate_top_menu	navigate.txt	/*navigate_top_menu*
