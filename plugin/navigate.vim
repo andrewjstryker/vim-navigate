@@ -18,15 +18,18 @@ let g:navigate_loaded = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-" total number of defined navigate states
-let s:defined_states = 5
+" record all navigation states below
+let s:navigation_states = ["normal", "tab", "buffer", "window", "quickfix"]
 
 " leave key mappings alone as a safe default choice (and store this locally)
 if exists("g:navigate_state")
   let s:state = g:navigate_state
 else
-  let s:state = 0
+  let s:state = "normal"
 endif
+
+" define an index variable
+let s:state_index = 0
 
 " tell the user about changing navigate states unless this is not wanted
 if !exists("g:navigate_announce")
@@ -85,7 +88,7 @@ function! s:NormalNavigate(announce)
   if a:announce
     echo "Normal navigation"
   endif
-  let s:state = 0
+  let s:state = "normal"
 endfunction
 
 function! s:TabNavigate(announce)
@@ -101,7 +104,7 @@ function! s:TabNavigate(announce)
   if a:announce
     echo "Tab navigation"
   endif
-  let s:state = 1
+  let s:state = "tab"
 endfunction
 
 function! s:BufferNavigate(announce)
@@ -117,7 +120,7 @@ function! s:BufferNavigate(announce)
   if a:announce
     echo "Buffer navigation"
   endif
-  let s:state = 2
+  let s:state = "buffer"
 endfunction
 
 function! s:WindowNavigate(announce)
@@ -133,7 +136,7 @@ function! s:WindowNavigate(announce)
   if a:announce
     echo "Window navigation"
   endif
-  let s:state = 3
+  let s:state = "window"
 endfunction
 
 function! s:QuickFixNavigate(announce)
@@ -149,17 +152,17 @@ function! s:QuickFixNavigate(announce)
   if a:announce
     echo "Quick Fix navigation"
   endif
-  let s:state = 4
+  let s:state = "quickfix"
 endfunction
 
-function! s:ChangeState(announce)
-  if s:state == 1
+function! s:ChangeState(new_state, announce)
+  if a:new_state == "tab"
     call s:TabNavigate(a:announce)
-  elseif s:state == 2
+  elseif a:new_state == "buffer"
     call s:BufferNavigate(a:announce)
-  elseif s:state == 3
+  elseif a:new_state == "window"
     call s:WindowNavigate(a:announce)
-  elseif s:state == 4
+  elseif a:new_state == "quickfix"
     call s:QuickFixNavigate(a:announce)
   " put new navigate states here
   else
@@ -168,22 +171,22 @@ function! s:ChangeState(announce)
 endfunction
 
 function! s:Cycle(announce)
-  let s:state = s:state + 1
-  if s:state > s:defined_states
-    let s:state = 0
+  let s:state_index = s:state_index + 1
+  if s:state_index > len(s:navigation_states) - 1
+    let s:state_index = 0
   endif
-  call s:ChangeState(a:announce)
+  call s:ChangeState(s:navigation_states[s:state_index], a:announce)
 endfunction
 
 function! s:ReverseCycle(announce)
   let s:state = s:state - 1
   if s:state < 0
-    let s:state = s:defined_states
+    let s:state = len(s:navigation_states) - 1
   endif
-  call s:ChangeState(a:announce)
+  call s:ChangeState(s:navigation_states[s:state_index], a:announce)
 endfunction
 
-call s:ChangeState(0) " announcing at start-up makes Vim wait for input
+call s:ChangeState(s:state, 0) " announcing at start-up makes Vim wait for input
 
 let &cpo = s:save_cpo
 
