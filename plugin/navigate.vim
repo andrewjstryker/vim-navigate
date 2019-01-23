@@ -2,9 +2,6 @@
 " Construct navigate states with cursor and related key mappings.
 " Currently buffer, window and quick fix states are defined.
 "
-" File:  navigate.vim
-" Last Modified:  2007 April 24
-" Version:  1.0 (first public release)
 " Maintainer:  Andrew Stryker <axs@sdf.org>
 "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 
@@ -170,20 +167,23 @@ function! s:ChangeState(new_state, announce)
   endif
 endfunction
 
+" Use a list of fiunction to manage states
+let g:navigation_states = [
+  \ {'state': 'normal', 'func': s:NormalNavigate},
+  \ {'state': 'buffer': 'func': s:BufferNavigate},
+  \ {'state': 'tab': 'func': s:TabNavigate},
+  \ {'state': 'window': 'func': s:WindowNavigate},
+  \ {'state': 'quickfix': 'func': s:QuickFixNavigate}]
+
+
 function! s:Cycle(announce)
-  let s:state_index = s:state_index + 1
-  if s:state_index > len(s:navigation_states) - 1
-    let s:state_index = 0
-  endif
-  call s:ChangeState(s:navigation_states[s:state_index], a:announce)
+  call add(g:navigation_states, g:navigation_states[0])
+  unlet g:navigation_states[0]
 endfunction
 
 function! s:ReverseCycle(announce)
-  let s:state = s:state - 1
-  if s:state < 0
-    let s:state = len(s:navigation_states) - 1
-  endif
-  call s:ChangeState(s:navigation_states[s:state_index], a:announce)
+  call insert(g:navigation_states, g:navigation_states[-1])
+  unlet g:navigation_states[-1]
 endfunction
 
 call s:ChangeState(s:state, 0) " announcing at start-up makes Vim wait for input
