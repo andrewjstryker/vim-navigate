@@ -97,7 +97,7 @@ function! s:TabNavigate(announce)
   noremap <Up> :tabnew<CR>
   noremap <Left> :tabprevious<CR>
   noremap <Right> :tabnext<CR>
-  noremap <Down> :tabs<CR>
+  noremap <Down> <C-W>gf<CR>
   if a:announce
     echo "Tab navigation"
   endif
