@@ -4,10 +4,9 @@ Vim plugin for navigating through tabs, buffers, windows, and quick fixes.
 
 ## Usage
 
-Experienced Vim users forgo the cursor keys and use <key>h</key>, <key>j</key>,
-<key>k</key>, and <key>l</key> keys to move around a file. This plugin maps the
-little used cursor keys, <key>Home</key>, <key>End</key>, <key>PageUp</key>,
-and <key>PageDown</key> keys to more useful functions.
+Experienced Vim users forgo the cursor keys and use `h`, `j`, `k`, and `l` keys
+to move around a file. This plugin maps the little used cursor keys, `Home`,
+`End`, `PageUp`, and `PageDown` keys to more useful functions.
 
 This plugin defines four mapping groups:
 
@@ -28,7 +27,7 @@ Think of these groups like a mode within Normal model.
 | `<PageDown>` | `:tabmove -<CR>`   | `<C-W>w`       | `<PageDown`      | <PageDown>       |
 | `<Home>`     | `:tabfirst<CR>`    | `<C-W>t`       | `:bfirst<CR>`    | `:cfirst<CR>`    |
 | `<End>`      | `:tablast<CR>`     | `<C-W>b`       | `:blast<CR>`     | `:clast<CR>`     |
-| <key>Del</key>      | `:tabclose<CR>`    | `<C-W>q`       | `:bdelete<CR>`   | `<Del>`          |
+| `<Del>`      | `:tabclose<CR>`    | `<C-W>q`       | `:bdelete<CR>`   | `<Del>`          |
 
 
 Further, this plugin defines functions that cycle through each of these key
