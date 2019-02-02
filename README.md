@@ -9,14 +9,14 @@ Experienced Vim users forgo the cursor keys and use <key>h</key>, <key>j</key>,
 little used cursor keys, <key>Home</key>, <key>End</key>, <key>PageUp</key>,
 and <key>PageDown</key> keys to more useful functions.
 
-This plugin defines four mapping groups: 
+This plugin defines four mapping groups:
 
 - **Tab:** mappings to move through tabs
 - **Window**: mappings to move around windows
 - **Buffer**: mappings to manipulate buffers
 - **Quick Fix**: mappings to traverse quick fix lists
 
-Think of these groups like a mode within Normal model. 
+Think of these groups like a mode within Normal model.
 
 | Key          | Tab                | Window         | Buffer           | Quick Fix        |
 |:-------------|:-------------------|:---------------|:-----------------|:-----------------|
