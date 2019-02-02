@@ -55,7 +55,7 @@ Normal      Tab               Buffer          Window          Quick Fix ~
 <Up>        :tabnew<CR>       :buffer #<CR>   <C-W><Up>       :clist<CR>
 <Left>      :tabprevious<CR>  :bprevious<CR>  <C-W><Left>     :cprevious<CR>
 <Right>     :tabnext<CR>      :bnext<CR>      <C-W><Right>    :cnext<CR>
-<Down>      :tabs<CR>         :buffer         <C-W><Down>     <Down>
+<Down>      <C-W>gf<CR>       :buffer         <C-W><Down>     <Down>
 
 There are two ways to select the navigation state.  Within gVim, there are
 menu option under Plugin -> Navigate to select navigate states.  The navigate
