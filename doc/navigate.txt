@@ -36,15 +36,6 @@ cursor keys.  Further, it may conflict with plugins that remap cursor keys.
 The following table shows the mappings in effect for each of the navigate
 states.  The column labeled "Normal" shows the default bindings.  These
 mappings are only in effect while in normal mode.
-  noremap <Del> :tabclose<CR>
-  noremap <Home> :tabfirst<CR>
-  noremap <End> :tablast<CR>
-  noremap <PageUp> :tabmove -<CR>
-  noremap <PageDown> :tabmove +<CR>
-  noremap <Up> :tabnew<CR>
-  noremap <Left> :tabprevious<CR>
-  noremap <Right> :tabnext<CR>
-  noremap <Down> :tabs<CR>
 
 Normal      Tab               Buffer          Window          Quick Fix ~
 <Del>       :tabclose<CR>     :bdelete<CR>    <C-W>q          <Del>
