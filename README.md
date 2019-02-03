@@ -42,6 +42,16 @@ mapping groups.
 
 ## Contributing
 
+Should you have questions about using this plugin or think that you have
+spotted an error, please ask in the [`#vim` channel on
+freenode](https://webchat.freenode.net/?channels=vim). My handle is `axsdf`.
+
+Please file [issues on
+GitHub](https://github.com/andrewjstryker/vim-navigate/issues). Pull requests
+are also welcome. [Writing a good commit
+message](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+will increase your chance of meeting your pull accepted.
+
 ## License
 
 Copyright (c) Andrew Stryker. Distributed under the same terms as Vim itself.
