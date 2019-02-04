@@ -20,7 +20,7 @@ Think of these groups like a mode within Normal model.
 
 | Key          | Tab                | Window         | Buffer           | Quick Fix        |
 |:-------------|:-------------------|:---------------|:-----------------|:-----------------|
-| `<Up>`       | `:tabnew<CR>`      | `<C-W><Up>`    | `:buffer #<CR>`  |  `:clist<CR>`    |
+| <kbd>Up</kbd>       | `:tabnew<CR>`      | `<C-W><Up>`    | `:buffer #<CR>`    | `:clist<CR>`    |
 | `<Down>`     | `<C-W>gf`          | `<C-W><Down>`  | `:buffer`        |  <Down>          |
 | `<Left>`     | `:tabprevious<CR>` | `<C-W><Left>`  | `:bprevious<CR>` | `:cprevious<CR>` |
 | `<Right>`    | `:tabnext<CR>`     | `<C-W><Right>` | `:bnext<CR>`     | `:cnext<CR>`     |
