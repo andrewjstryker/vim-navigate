@@ -30,13 +30,17 @@ Think of these groups like a mode within Normal model.
 | <kbd>End</kbd>      | `:tablast<CR>`     | `<C-W>b`       | `:blast<CR>`     | `:clast<CR>`        |
 | <kbd>Del</kbd>      | `:tabclose<CR>`    | `<C-W>q`       | `:bdelete<CR>`   | <kbd>Del</kbd>      |
 
-
-Further, this plugin defines functions that cycle through each of these key
-mapping groups.
-
 ## Installation
 
-## Package installation
+If you don't have a favorite method for installing Vim packages, try using
+[Vim's native packaging loading](https://shapeshed.com/vim-packages/).
+
+```sh
+cd ~/.vim/pack/start
+git clone https://github.com/andrewjstryker/vim-navigate.git
+```
+
+Otherwise, follow instructions for your Vim package manager of choice.
 
 ## `vimrc` configuration
 
