@@ -55,7 +55,7 @@ Please file [issues on
 GitHub](https://github.com/andrewjstryker/vim-navigate/issues). Pull requests
 are also welcome. [Writing a good commit
 message](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-will increase your chance of meeting your pull accepted.
+will increase your chance of getting your pull accepted.
 
 ## License
 
