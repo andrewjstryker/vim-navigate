@@ -4,9 +4,9 @@ Vim plugin for navigating through tabs, buffers, windows, and quick fixes.
 
 ## Usage
 
-Experienced Vim users forgo the cursor keys and use <kbd>h</kbd>, <kbd>j</kbd>, 
-<kbd>k</kbd>, and <kbd>l</kbd> keys to move around a file. This plugin maps the 
-little used cursor keys, <kbd>Home</kbd>, <kbd>End</kbd>, <kbd>PageUp</kbd>, 
+Experienced Vim users forgo the cursor keys and use <kbd>h</kbd>, <kbd>j</kbd>,
+<kbd>k</kbd>, and <kbd>l</kbd> keys to move around a file. This plugin maps the
+little used cursor keys, <kbd>Home</kbd>, <kbd>End</kbd>, <kbd>PageUp</kbd>,
 and <kbd>PageDown</kbd> keys to more useful functions.
 
 This plugin defines four mapping groups:
