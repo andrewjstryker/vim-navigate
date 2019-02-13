@@ -21,7 +21,7 @@ Think of these groups like a mode within Normal model.
 | Key                 | Tab                | Window         | Buffer           | Quick Fix        |
 |:--------------------|:-------------------|:---------------|:-----------------|:-----------------|
 | <kbd>Up</kbd>       | `:tabnew<CR>`      | `<C-W><Up>`    | `:buffer #<CR>`  | `:clist<CR>`     |
-| <kbd>Down</kbd>     | `<C-W>gf`          | `<C-W><Down>`  | `:buffer`        | `:cwindow<CR>    |
+| <kbd>Down</kbd>     | `<C-W>gf`          | `<C-W><Down>`  | `:buffer`        | `:cwindow<CR>`   |
 | <kbd>Left</kbd>     | `:tabprevious<CR>` | `<C-W><Left>`  | `:bprevious<CR>` | `:cprevious<CR>` |
 | <kbd>Right</kbd>    | `:tabnext<CR>`     | `<C-W><Right>` | `:bnext<CR>`     | `:cnext<CR>`     |
 | <kbd>PageUp</kbd>   | `:tabmove +<CR>`   | `<C-W>W`       | `<PageUp`        | `:copen<CR>`     |
