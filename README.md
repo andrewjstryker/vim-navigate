@@ -33,7 +33,7 @@ Think of these groups like a mode within Normal model.
 ## Installation
 
 If you don't have a favorite method for installing Vim packages, try using
-[Vim's native packaging loading](https://shapeshed.com/vim-packages/).
+[Vim's native packaging loading](https://shapeshed.com/vim-packages/):
 
 ```sh
 cd ~/.vim/pack/start
