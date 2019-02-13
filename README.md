@@ -33,10 +33,11 @@ Think of these groups like a mode within Normal model.
 ## Installation
 
 If you don't have a favorite method for installing Vim packages, try using
-[Vim's native packaging loading](https://shapeshed.com/vim-packages/):
+[Vim's native packaging loading](https://stories.abletech.nz/get-rid-of-your-vim-plugin-manager-7c8ff742f643):
 
 ```sh
-cd ~/.vim/pack/start
+mkdir --parents ~/.vim/pack/vim-navigate/start
+cd ~/.vim/pack/vim-navigate/start
 git clone https://github.com/andrewjstryker/vim-navigate.git
 ```
 
