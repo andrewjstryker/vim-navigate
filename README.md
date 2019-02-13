@@ -55,5 +55,5 @@ will increase your chance of meeting your pull accepted.
 
 ## License
 
-Copyright (c) Andrew Stryker. Distributed under the same terms as Vim itself.
+Copyright © Andrew Stryker. Distributed under the same terms as Vim itself.
 See `:help license`.
