@@ -137,15 +137,15 @@ function! s:WindowNavigate(announce)
 endfunction
 
 function! s:QuickFixNavigate(announce)
-  noremap <Del> <Del>
+  noremap <Del> :close<CR>
   noremap <Home> :cfirst<CR>
   noremap <End> :clast<CR>
-  noremap <PageUp> <PageUp>
-  noremap <PageDown> <PageDown>
+  noremap <PageUp> :copen<CR>
+  noremap <PageDown> :cbottom<CR>
   noremap <Up> :clist<CR>
   noremap <Left> :cprevious<CR>
   noremap <Right> :cnext<CR>
-  noremap <Down> <Down>
+  noremap <Down> :cwindow<CR>
   if a:announce
     echo "Quick Fix navigation"
   endif

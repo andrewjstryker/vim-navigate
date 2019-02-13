@@ -18,17 +18,17 @@ This plugin defines four mapping groups:
 
 Think of these groups like a mode within Normal model.
 
-| Key                 | Tab                | Window         | Buffer           | Quick Fix           |
-|:--------------------|:-------------------|:---------------|:-----------------|:--------------------|
-| <kbd>Up</kbd>       | `:tabnew<CR>`      | `<C-W><Up>`    | `:buffer #<CR>`  | `:clist<CR>`        |
-| <kbd>Down</kbd>     | `<C-W>gf`          | `<C-W><Down>`  | `:buffer`        | <kbd>Down</kbd>     |
-| <kbd>Left</kbd>     | `:tabprevious<CR>` | `<C-W><Left>`  | `:bprevious<CR>` | `:cprevious<CR>`    |
-| <kbd>Right</kbd>    | `:tabnext<CR>`     | `<C-W><Right>` | `:bnext<CR>`     | `:cnext<CR>`        |
-| <kbd>PageUp</kbd>   | `:tabmove +<CR>`   | `<C-W>W`       | `<PageUp`        | <kbd>PageUp</kbd>   |
-| <kbd>PageDown</kbd> | `:tabmove -<CR>`   | `<C-W>w`       | `<PageDown`      | <kbd>PageDown</kbd> |
-| <kbd>Home</kbd>     | `:tabfirst<CR>`    | `<C-W>t`       | `:bfirst<CR>`    | `:cfirst<CR>`       |
-| <kbd>End</kbd>      | `:tablast<CR>`     | `<C-W>b`       | `:blast<CR>`     | `:clast<CR>`        |
-| <kbd>Del</kbd>      | `:tabclose<CR>`    | `<C-W>q`       | `:bdelete<CR>`   | <kbd>Del</kbd>      |
+| Key                 | Tab                | Window         | Buffer           | Quick Fix        |
+|:--------------------|:-------------------|:---------------|:-----------------|:-----------------|
+| <kbd>Up</kbd>       | `:tabnew<CR>`      | `<C-W><Up>`    | `:buffer #<CR>`  | `:clist<CR>`     |
+| <kbd>Down</kbd>     | `<C-W>gf`          | `<C-W><Down>`  | `:buffer`        | `:cwindow<CR>    |
+| <kbd>Left</kbd>     | `:tabprevious<CR>` | `<C-W><Left>`  | `:bprevious<CR>` | `:cprevious<CR>` |
+| <kbd>Right</kbd>    | `:tabnext<CR>`     | `<C-W><Right>` | `:bnext<CR>`     | `:cnext<CR>`     |
+| <kbd>PageUp</kbd>   | `:tabmove +<CR>`   | `<C-W>W`       | `<PageUp`        | `:copen<CR>`     |
+| <kbd>PageDown</kbd> | `:tabmove -<CR>`   | `<C-W>w`       | `<PageDown`      | `:cbottom<CR>`   |
+| <kbd>Home</kbd>     | `:tabfirst<CR>`    | `<C-W>t`       | `:bfirst<CR>`    | `:cfirst<CR>`    |
+| <kbd>End</kbd>      | `:tablast<CR>`     | `<C-W>b`       | `:blast<CR>`     | `:clast<CR>`     |
+| <kbd>Del</kbd>      | `:tabclose<CR>`    | `<C-W>q`       | `:bdelete<CR>`   | `:close<CR>`     |
 
 ## Installation
 

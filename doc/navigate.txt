@@ -38,15 +38,15 @@ states.  The column labeled "Normal" shows the default bindings.  These
 mappings are only in effect while in normal mode.
 
 Normal      Tab               Buffer          Window          Quick Fix ~
-<Del>       :tabclose<CR>     :bdelete<CR>    <C-W>q          <Del>
+<Del>       :tabclose<CR>     :bdelete<CR>    <C-W>q          :close<CR>
 <Home>      :tabfirst<CR>     :bfirst<CR>     <C-W>t          :cfirst<CR>
 <End>       :tablast<CR>      :blast<CR>      <C-W>b          :clast<CR>
-<PageUp>    :tabmove -<CR>    <PageUp>        <C-W>W          <PageUp>
-<PageDown>  :tabmove +<CR>    <PageDown>      <C-W>w          <PageDown>
+<PageUp>    :tabmove -<CR>    <PageUp>        <C-W>W          :copen<CR>
+<PageDown>  :tabmove +<CR>    <PageDown>      <C-W>w          :clast<CR>
 <Up>        :tabnew<CR>       :buffer #<CR>   <C-W><Up>       :clist<CR>
 <Left>      :tabprevious<CR>  :bprevious<CR>  <C-W><Left>     :cprevious<CR>
 <Right>     :tabnext<CR>      :bnext<CR>      <C-W><Right>    :cnext<CR>
-<Down>      <C-W>gf<CR>       :buffer         <C-W><Down>     <Down>
+<Down>      <C-W>gf<CR>       :buffer         <C-W><Down>     :cwindow<CR>
 
 There are two ways to select the navigation state.  Within gVim, there are
 menu option under Plugin -> Navigate to select navigate states.  The navigate
