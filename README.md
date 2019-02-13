@@ -28,7 +28,7 @@ Think of these groups like a mode within Normal model.
 | <kbd>PageDown</kbd> | `:tabmove -<CR>`   | `<C-W>w`       | `<PageDown`      | <kbd>PageDown</kbd> |
 | <kbd>Home</kbd>     | `:tabfirst<CR>`    | `<C-W>t`       | `:bfirst<CR>`    | `:cfirst<CR>`       |
 | <kbd>End</kbd>      | `:tablast<CR>`     | `<C-W>b`       | `:blast<CR>`     | `:clast<CR>`        |
-| <kbd>Del</kbd>      | `:tabclose<CR>`    | `<C-W>q`       | `:bdelete<CR>`   | `kbd><</kbdDel>`    |
+| <kbd>Del</kbd>      | `:tabclose<CR>`    | `<C-W>q`       | `:bdelete<CR>`   | <kbd>Del</kbd>      |
 
 
 Further, this plugin defines functions that cycle through each of these key
