@@ -33,7 +33,8 @@ Think of these groups like a mode within Normal model.
 ## Installation
 
 If you don't have a favorite method for installing Vim packages, try using
-[Vim's native packaging loading](https://stories.abletech.nz/get-rid-of-your-vim-plugin-manager-7c8ff742f643):
+[Vim's native package 
+management](https://stories.abletech.nz/get-rid-of-your-vim-plugin-manager-7c8ff742f643):
 
 ```sh
 mkdir --parents ~/.vim/pack/vim-navigate/start
