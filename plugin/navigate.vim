@@ -167,13 +167,13 @@ function! s:ChangeState(new_state, announce)
   endif
 endfunction
 
-" Use a list of fiunction to manage states
-let g:navigation_states = [
-  \ {'state': 'normal', 'func': s:NormalNavigate},
-  \ {'state': 'buffer': 'func': s:BufferNavigate},
-  \ {'state': 'tab': 'func': s:TabNavigate},
-  \ {'state': 'window': 'func': s:WindowNavigate},
-  \ {'state': 'quickfix': 'func': s:QuickFixNavigate}]
+" Map state names to functions
+let g:navigation_states = {
+  \ 'normal': s:NormalNavigate,
+  \ 'buffer': s:BufferNavigate,
+  \ 'tab': s:TabNavigate,
+  \ 'window': s:WindowNavigate,
+  \ 'quickfix': s:QuickFixNavigate}
 
 
 function! s:Cycle(announce)
