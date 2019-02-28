@@ -168,13 +168,20 @@ function! s:ChangeState(new_state, announce)
 endfunction
 
 " Map state names to functions
-let g:navigation_states = {
+let s:nav_functions = {
   \ 'normal': s:NormalNavigate,
   \ 'buffer': s:BufferNavigate,
   \ 'tab': s:TabNavigate,
   \ 'window': s:WindowNavigate,
   \ 'quickfix': s:QuickFixNavigate}
 
+" Ordered list of states for cycling
+let g:nav_states = [
+  \ 'normal',
+  \ 'tab',
+  \ 'window',
+  \ 'buffer',
+  \ 'quickfix']
 
 function! s:Cycle(announce)
   call add(g:navigation_states, g:navigation_states[0])
