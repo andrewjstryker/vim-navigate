@@ -15,59 +15,11 @@ let g:navigate_loaded = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-" leave key mappings alone as a safe default choice (and store this locally)
-if exists("g:navigate_state")
-  let s:state = g:navigate_state
-else
-  let s:state = "normal"
-endif
-
-" define an index variable
-let s:state_index = 0
-
-" tell the user about changing navigate states unless this is not wanted
-if !exists("g:navigate_announce")
-  let g:navigate_announce = 1
-endif
-
-" (forward) cycle through navigate states
-if !hasmapto("<Plug>NavigateCycle")
-  nmap <silent> <unique> <Leader>n <Plug>NavigateCycle
-endif
-noremap <unique> <script> <Plug>NavigateCycle <SID>Cycle
-noremap <SID>Cycle :call <SID>Cycle(g:navigate_announce)<CR>
-
-" (reverse) cycle through navigate states
-if !hasmapto("<Plug>ReverseNavigateCycle")
-  nmap <silent> <unique> <Leader>N <Plug>ReverseNavigateCycle
-endif
-noremap <unique> <script> <Plug>ReverseNavigateCycle <SID>ReverseCycle
-noremap <SID>ReverseCycle :call <SID>ReverseCycle(g:navigate_announce)<CR>
-
-" gVim menu
-if has("gui")
-  if !exists("g:navigate_top_menu")
-    let g:navigate_top_menu = "."
-  endif
-  silent noremenu Navigate.Normal <SID>NormalNavigate
-  silent noremap <SID>NormalNavigate
-        \ :call <SID>NormalNavigate(g:navigate_announce)<CR>
-  silent noremenu Navigate.Tabs <SID>BufferTabs
-  silent noremap <SID>BufferTabs
-        \ :call <SID>BufferTabs(g:navigate_announce)<CR>
-  silent noremenu Navigate.Buffers <SID>BufferNavigate
-  silent noremap <SID>BufferNavigate
-        \ :call <SID>BufferNavigate(g:navigate_announce)<CR>
-  silent noremenu Navigate.Windows <SID>WindowNavigate
-  silent noremap <SID>WindowNavigate
-        \ :call <SID>WindowNavigate(g:navigate_announce)<CR>
-  silent noremenu Navigate.Tabs <SID>TabNavigate
-  silent noremap <SID>TabNavigate
-        \ :call <SID>TabNavigate(g:navigate_announce)<CR>
-  silent noremenu Navigate.Quick\ Fix <SID>QuickFixNavigate
-  silent noremap <SID>QuickFixNavigate
-        \ :call <SID>QuickFixNavigate(g:navigate_announce)<CR>
-endif
+"-----------------------------------------------------------------------------"
+"
+" Define mapping states
+"
+"-----------------------------------------------------------------------------"
 
 function! s:NormalNavigate(announce)
   noremap <Del> <Del>
@@ -148,6 +100,59 @@ function! s:QuickFixNavigate(announce)
   endif
   let s:state = "quickfix"
 endfunction
+" leave key mappings alone as a safe default choice (and store this locally)
+if exists("g:navigate_state")
+  let s:state = g:navigate_state
+else
+  let s:state = "normal"
+endif
+
+" define an index variable
+let s:state_index = 0
+
+" tell the user about changing navigate states unless this is not wanted
+if !exists("g:navigate_announce")
+  let g:navigate_announce = 1
+endif
+
+" (forward) cycle through navigate states
+if !hasmapto("<Plug>NavigateCycle")
+  nmap <silent> <unique> <Leader>n <Plug>NavigateCycle
+endif
+noremap <unique> <script> <Plug>NavigateCycle <SID>Cycle
+noremap <SID>Cycle :call <SID>Cycle(g:navigate_announce)<CR>
+
+" (reverse) cycle through navigate states
+if !hasmapto("<Plug>ReverseNavigateCycle")
+  nmap <silent> <unique> <Leader>N <Plug>ReverseNavigateCycle
+endif
+noremap <unique> <script> <Plug>ReverseNavigateCycle <SID>ReverseCycle
+noremap <SID>ReverseCycle :call <SID>ReverseCycle(g:navigate_announce)<CR>
+
+" gVim menu
+if has("gui")
+  if !exists("g:navigate_top_menu")
+    let g:navigate_top_menu = "."
+  endif
+  silent noremenu Navigate.Normal <SID>NormalNavigate
+  silent noremap <SID>NormalNavigate
+        \ :call <SID>NormalNavigate(g:navigate_announce)<CR>
+  silent noremenu Navigate.Tabs <SID>BufferTabs
+  silent noremap <SID>BufferTabs
+        \ :call <SID>BufferTabs(g:navigate_announce)<CR>
+  silent noremenu Navigate.Buffers <SID>BufferNavigate
+  silent noremap <SID>BufferNavigate
+        \ :call <SID>BufferNavigate(g:navigate_announce)<CR>
+  silent noremenu Navigate.Windows <SID>WindowNavigate
+  silent noremap <SID>WindowNavigate
+        \ :call <SID>WindowNavigate(g:navigate_announce)<CR>
+  silent noremenu Navigate.Tabs <SID>TabNavigate
+  silent noremap <SID>TabNavigate
+        \ :call <SID>TabNavigate(g:navigate_announce)<CR>
+  silent noremenu Navigate.Quick\ Fix <SID>QuickFixNavigate
+  silent noremap <SID>QuickFixNavigate
+        \ :call <SID>QuickFixNavigate(g:navigate_announce)<CR>
+endif
 
 " Map state names to functions
 let s:nav_functions = {
