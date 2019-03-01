@@ -15,9 +15,6 @@ let g:navigate_loaded = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-" record all navigation states below
-let s:navigation_states = ["normal", "tab", "buffer", "window", "quickfix"]
-
 " leave key mappings alone as a safe default choice (and store this locally)
 if exists("g:navigate_state")
   let s:state = g:navigate_state
@@ -152,21 +149,6 @@ function! s:QuickFixNavigate(announce)
   let s:state = "quickfix"
 endfunction
 
-function! s:ChangeState(new_state, announce)
-  if a:new_state == "tab"
-    call s:TabNavigate(a:announce)
-  elseif a:new_state == "buffer"
-    call s:BufferNavigate(a:announce)
-  elseif a:new_state == "window"
-    call s:WindowNavigate(a:announce)
-  elseif a:new_state == "quickfix"
-    call s:QuickFixNavigate(a:announce)
-  " put new navigate states here
-  else
-    call s:NormalNavigate(a:announce)
-  endif
-endfunction
-
 " Map state names to functions
 let s:nav_functions = {
   \ 'normal': s:NormalNavigate,
@@ -184,13 +166,15 @@ let g:nav_states = [
   \ 'quickfix']
 
 function! s:Cycle(announce)
-  call add(g:navigation_states, g:navigation_states[0])
-  unlet g:navigation_states[0]
+  call add(g:nav_states, g:nav_states[0])
+  unlet g:nav_states[0]
+  call s:nav_functions[g:nav_states[0](announce)
 endfunction
 
 function! s:ReverseCycle(announce)
-  call insert(g:navigation_states, g:navigation_states[-1])
-  unlet g:navigation_states[-1]
+  call insert(g:navi_states, g:nav_states[-1])
+  unlet g:nav_states[-1]
+  call s:nav_functions[g:nav_states[0](announce)
 endfunction
 
 call s:ChangeState(s:state, 0) " announcing at start-up makes Vim wait for input
