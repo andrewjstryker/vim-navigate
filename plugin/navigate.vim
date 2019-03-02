@@ -106,6 +106,8 @@ endfunction
 " gVim menu
 "
 "-----------------------------------------------------------------------------"
+
+" TODO: navigate_top_menu defined but not used
 if has("gui")
   if !exists("g:navigate_top_menu")
     let g:navigate_top_menu = "."
