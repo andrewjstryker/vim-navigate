@@ -103,6 +103,27 @@ endfunction
 
 "-----------------------------------------------------------------------------"
 "
+" Track states and function mapping
+"
+"-----------------------------------------------------------------------------"
+
+let s:nav_functions = {
+  \ 'normal': s:NormalNavigate,
+  \ 'buffer': s:BufferNavigate,
+  \ 'tab': s:TabNavigate,
+  \ 'window': s:WindowNavigate,
+  \ 'quickfix': s:QuickFixNavigate}
+
+" Ordered list of states for cycling
+let g:nav_states = [
+  \ 'normal',
+  \ 'tab',
+  \ 'window',
+  \ 'buffer',
+  \ 'quickfix']
+
+"-----------------------------------------------------------------------------"
+"
 " gVim menu
 "
 "-----------------------------------------------------------------------------"
@@ -162,22 +183,6 @@ if !hasmapto("<Plug>ReverseNavigateCycle")
 endif
 noremap <unique> <script> <Plug>ReverseNavigateCycle <SID>ReverseCycle
 noremap <SID>ReverseCycle :call <SID>ReverseCycle(g:navigate_announce)<CR>
-
-" Map state names to functions
-let s:nav_functions = {
-  \ 'normal': s:NormalNavigate,
-  \ 'buffer': s:BufferNavigate,
-  \ 'tab': s:TabNavigate,
-  \ 'window': s:WindowNavigate,
-  \ 'quickfix': s:QuickFixNavigate}
-
-" Ordered list of states for cycling
-let g:nav_states = [
-  \ 'normal',
-  \ 'tab',
-  \ 'window',
-  \ 'buffer',
-  \ 'quickfix']
 
 function! s:Cycle(announce)
   call add(g:nav_states, g:nav_states[0])
