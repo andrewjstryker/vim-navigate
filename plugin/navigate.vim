@@ -122,6 +122,25 @@ let g:nav_states = [
   \ 'buffer',
   \ 'quickfix']
 
+
+"-----------------------------------------------------------------------------"
+"
+" Functions to change states
+"
+"-----------------------------------------------------------------------------"
+
+function! s:Cycle(announce)
+  call add(g:nav_states, g:nav_states[0])
+  unlet g:nav_states[0]
+  call s:nav_functions[g:nav_states[0](announce)
+endfunction
+
+function! s:ReverseCycle(announce)
+  call insert(g:navi_states, g:nav_states[-1])
+  unlet g:nav_states[-1]
+  call s:nav_functions[g:nav_states[0](announce)
+endfunction
+
 "-----------------------------------------------------------------------------"
 "
 " gVim menu
@@ -183,19 +202,6 @@ if !hasmapto("<Plug>ReverseNavigateCycle")
 endif
 noremap <unique> <script> <Plug>ReverseNavigateCycle <SID>ReverseCycle
 noremap <SID>ReverseCycle :call <SID>ReverseCycle(g:navigate_announce)<CR>
-
-function! s:Cycle(announce)
-  call add(g:nav_states, g:nav_states[0])
-  unlet g:nav_states[0]
-  call s:nav_functions[g:nav_states[0](announce)
-endfunction
-
-function! s:ReverseCycle(announce)
-  call insert(g:navi_states, g:nav_states[-1])
-  unlet g:nav_states[-1]
-  call s:nav_functions[g:nav_states[0](announce)
-endfunction
-
 call s:ChangeState(s:state, 0) " announcing at start-up makes Vim wait for input
 
 let &cpo = s:save_cpo
