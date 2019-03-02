@@ -110,21 +110,23 @@ if has("gui")
   if !exists("g:navigate_top_menu")
     let g:navigate_top_menu = "."
   endif
+
   silent noremenu Navigate.Normal <SID>NormalNavigate
   silent noremap <SID>NormalNavigate
         \ :call <SID>NormalNavigate(g:navigate_announce)<CR>
-  silent noremenu Navigate.Tabs <SID>BufferTabs
-  silent noremap <SID>BufferTabs
-        \ :call <SID>BufferTabs(g:navigate_announce)<CR>
-  silent noremenu Navigate.Buffers <SID>BufferNavigate
-  silent noremap <SID>BufferNavigate
-        \ :call <SID>BufferNavigate(g:navigate_announce)<CR>
-  silent noremenu Navigate.Windows <SID>WindowNavigate
-  silent noremap <SID>WindowNavigate
-        \ :call <SID>WindowNavigate(g:navigate_announce)<CR>
+
   silent noremenu Navigate.Tabs <SID>TabNavigate
   silent noremap <SID>TabNavigate
         \ :call <SID>TabNavigate(g:navigate_announce)<CR>
+
+  silent noremenu Navigate.Windows <SID>WindowNavigate
+  silent noremap <SID>WindowNavigate
+        \ :call <SID>WindowNavigate(g:navigate_announce)<CR>
+
+  silent noremenu Navigate.Buffers <SID>BufferNavigate
+  silent noremap <SID>BufferNavigate
+        \ :call <SID>BufferNavigate(g:navigate_announce)<CR>
+
   silent noremenu Navigate.Quick\ Fix <SID>QuickFixNavigate
   silent noremap <SID>QuickFixNavigate
         \ :call <SID>QuickFixNavigate(g:navigate_announce)<CR>
