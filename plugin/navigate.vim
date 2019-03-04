@@ -160,7 +160,7 @@ function! s:NextState(announce)
   call g:nav_states[0](announce)
 endfunction
 
-function! s:ReverseCycle(announce)
+function! s:ReverseState(announce)
   let g:nav_states = ReverseCycle(g:nav_states)
   call g:nav_states[0](announce)
 endfunction
