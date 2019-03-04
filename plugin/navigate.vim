@@ -129,7 +129,7 @@ let g:nav_states = [
 "
 "-----------------------------------------------------------------------------"
 
-function! s:Cycle(lst)
+function! s:ForwardCycle(lst)
   return lst[1:] + lst[:0]
 endfunction
 
@@ -139,7 +139,7 @@ endfunction
 
 function! s:PickCycle(el, lst)
   while el != lst[0]
-    let lst = Cycle(lst)
+    let lst = ForwardCycle(lst)
   endwhile
   return lst
 endfunction
@@ -156,7 +156,7 @@ function! s:ChangeState(state, announce)
 endfunction
 
 function! s:NextState(announce)
-  let g:nav_states = Cycle(g:nav_states)
+  let g:nav_states = ForwardCycle(g:nav_states)
   call g:nav_states[0](announce)
 endfunction
 
@@ -217,8 +217,8 @@ endif
 if !hasmapto("<Plug>NavigateCycle")
   nmap <silent> <unique> <Leader>n <Plug>NavigateCycle
 endif
-noremap <unique> <script> <Plug>NavigateCycle <SID>Cycle
-noremap <SID>Cycle :call <SID>Cycle(g:navigate_announce)<CR>
+noremap <unique> <script> <Plug>NavigateCycle <SID>ForwardCycle
+noremap <SID>ForwardCycle :call <SID>ForwardCycle(g:navigate_announce)<CR>
 
 " (reverse) cycle through navigate states
 if !hasmapto("<Plug>ReverseNavigateCycle")
