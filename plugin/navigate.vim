@@ -125,7 +125,7 @@ let g:nav_states = [
 
 "-----------------------------------------------------------------------------"
 "
-" Functions to change states
+" Manipulate cycles
 "
 "-----------------------------------------------------------------------------"
 
@@ -137,12 +137,6 @@ function! s:ReverseCycle(lst)
   return lst[-1:] + lst[:-2]
 endfunction
 
-function! s:ReverseCycle(announce)
-  call insert(g:navi_states, g:nav_states[-1])
-  unlet g:nav_states[-1]
-  call s:nav_functions[g:nav_states[0](announce)
-endfunction
-
 function! s:PickCycle(el, lst)
   while el != lst[0]
     let lst = Cycle(lst)
@@ -150,6 +144,18 @@ function! s:PickCycle(el, lst)
   return lst
 endfunction
 
+"-----------------------------------------------------------------------------"
+"
+" Functions to change states
+"
+"-----------------------------------------------------------------------------"
+
+function! s:ReverseCycle(announce)
+  call insert(g:navi_states, g:nav_states[-1])
+  unlet g:nav_states[-1]
+  call s:nav_functions[g:nav_states[0](announce)
+endfunction
+  call g:nav_states[0
 "-----------------------------------------------------------------------------"
 "
 " gVim menu
