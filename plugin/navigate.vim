@@ -166,6 +166,26 @@ endfunction
 
 "-----------------------------------------------------------------------------"
 "
+" Map state changing functions
+"
+"-----------------------------------------------------------------------------"
+
+" (forward) cycle through navigate states
+if !hasmapto("<Plug>NextState")
+  nmap <silent> <unique> <Leader>n <Plug>NextState
+endif
+noremap <unique> <script> <Plug>NavigateCycle <SID>NextState
+noremap <SID>NextState :call <SID>NextState(g:navigate_announce)<CR>
+
+" (reverse) cycle through navigate states
+if !hasmapto("<Plug>ReverseNavigateCycle")
+  nmap <silent> <unique> <Leader>N <Plug>ReverseNavigateCycle
+endif
+noremap <unique> <script> <Plug>ReverseNavigateCycle <SID>ReverseCycle
+noremap <SID>ReverseCycle :call <SID>ReverseCycle(g:navigate_announce)<CR>
+
+"-----------------------------------------------------------------------------"
+"
 " gVim menu
 "
 "-----------------------------------------------------------------------------"
@@ -212,19 +232,6 @@ if !exists("g:navigate_announce")
   let g:navigate_announce = 1
 endif
 
-" (forward) cycle through navigate states
-if !hasmapto("<Plug>NavigateCycle")
-  nmap <silent> <unique> <Leader>n <Plug>NavigateCycle
-endif
-noremap <unique> <script> <Plug>NavigateCycle <SID>ForwardCycle
-noremap <SID>ForwardCycle :call <SID>ForwardCycle(g:navigate_announce)<CR>
-
-" (reverse) cycle through navigate states
-if !hasmapto("<Plug>ReverseNavigateCycle")
-  nmap <silent> <unique> <Leader>N <Plug>ReverseNavigateCycle
-endif
-noremap <unique> <script> <Plug>ReverseNavigateCycle <SID>ReverseCycle
-noremap <SID>ReverseCycle :call <SID>ReverseCycle(g:navigate_announce)<CR>
 call s:ChangeState(s:state, 0) " announcing at start-up makes Vim wait for input
 
 let &cpo = s:save_cpo
