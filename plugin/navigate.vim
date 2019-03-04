@@ -178,23 +178,23 @@ if has("gui")
 
   silent noremenu Navigate.Normal <SID>NormalNavigate
   silent noremap <SID>NormalNavigate
-        \ :call <SID>NormalNavigate(g:navigate_announce)<CR>
+        \ :call <SID>ChangeState("normal", g:navigate_announce)<CR>
 
   silent noremenu Navigate.Tabs <SID>TabNavigate
   silent noremap <SID>TabNavigate
-        \ :call <SID>TabNavigate(g:navigate_announce)<CR>
+        \ :call <SID>ChangeState("tab", g:navigate_announce)<CR>
 
   silent noremenu Navigate.Windows <SID>WindowNavigate
   silent noremap <SID>WindowNavigate
-        \ :call <SID>WindowNavigate(g:navigate_announce)<CR>
+        \ :call <SID>ChangeState("window", g:navigate_announce)<CR>
 
   silent noremenu Navigate.Buffers <SID>BufferNavigate
   silent noremap <SID>BufferNavigate
-        \ :call <SID>BufferNavigate(g:navigate_announce)<CR>
+        \ :call <SID>ChangeState("buffer", g:navigate_announce)<CR>
 
   silent noremenu Navigate.Quick\ Fix <SID>QuickFixNavigate
   silent noremap <SID>QuickFixNavigate
-        \ :call <SID>QuickFixNavigate(g:navigate_announce)<CR>
+        \ :call <SID>ChangeState("quickfix", g:navigate_announce)<CR>
 endif
 
 " leave key mappings alone as a safe default choice (and store this locally)
