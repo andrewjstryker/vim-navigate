@@ -129,16 +129,25 @@ let g:nav_states = [
 "
 "-----------------------------------------------------------------------------"
 
-function! s:Cycle(announce)
-  call add(g:nav_states, g:nav_states[0])
-  unlet g:nav_states[0]
-  call s:nav_functions[g:nav_states[0](announce)
+function! s:Cycle(lst)
+  return lst[1:] + lst[:0]
+endfunction
+
+function! s:ReverseCycle(lst)
+  return lst[-1:] + lst[:-2]
 endfunction
 
 function! s:ReverseCycle(announce)
   call insert(g:navi_states, g:nav_states[-1])
   unlet g:nav_states[-1]
   call s:nav_functions[g:nav_states[0](announce)
+endfunction
+
+function! s:PickCycle(el, lst)
+  while el != lst[0]
+    let lst = Cycle(lst)
+  endwhile
+  return lst
 endfunction
 
 "-----------------------------------------------------------------------------"
