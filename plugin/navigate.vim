@@ -6,10 +6,10 @@
 "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 
 " ensure this has not been done before (or is not wanted)
-if exists("g:navigate_loaded")
+if exists("g:loaded_navigate")
   finish
 endif
-let g:navigate_loaded = 1
+let g:loaded_navigate = 1
 
 " make sure that it is possible to sourced concatenate lines
 let s:save_cpo = &cpo
