@@ -3,6 +3,7 @@
 " Currently buffer, window and quick fix states are defined.
 "
 " Maintainer:  Andrew Stryker <axs@sdf.org>
+" License: Vim license (:help license)
 "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 
 " ensure this has not been done before (or is not wanted)
