@@ -152,18 +152,18 @@ endfunction
 "-----------------------------------------------------------------------------"
 
 function! s:ChangeState(state, announce)
-  let g:nav_states = PickCycle(state)
-  call g:nav_states[0](announce)
+  let g:nav_states = PickCycle(a:state)
+  call g:nav_states[0](a:announce)
 endfunction
 
 function! s:NextState(announce)
   let g:nav_states = ForwardCycle(g:nav_states)
-  call g:nav_states[0](announce)
+  call g:nav_states[0](a:announce)
 endfunction
 
 function! s:ReverseState(announce)
   let g:nav_states = ReverseCycle(g:nav_states)
-  call g:nav_states[0](announce)
+  call g:nav_states[0](a:announce)
 endfunction
 
 "-----------------------------------------------------------------------------"
