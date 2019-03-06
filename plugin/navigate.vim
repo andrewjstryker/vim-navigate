@@ -35,7 +35,6 @@ function! s:NormalNavigate(announce)
   if a:announce
     echo "Normal navigation"
   endif
-  let s:state = "normal"
 endfunction
 
 function! s:TabNavigate(announce)
@@ -51,7 +50,6 @@ function! s:TabNavigate(announce)
   if a:announce
     echo "Tab navigation"
   endif
-  let s:state = "tab"
 endfunction
 
 function! s:BufferNavigate(announce)
@@ -67,7 +65,6 @@ function! s:BufferNavigate(announce)
   if a:announce
     echo "Buffer navigation"
   endif
-  let s:state = "buffer"
 endfunction
 
 function! s:WindowNavigate(announce)
@@ -83,7 +80,6 @@ function! s:WindowNavigate(announce)
   if a:announce
     echo "Window navigation"
   endif
-  let s:state = "window"
 endfunction
 
 function! s:QuickFixNavigate(announce)
@@ -99,7 +95,6 @@ function! s:QuickFixNavigate(announce)
   if a:announce
     echo "Quick Fix navigation"
   endif
-  let s:state = "quickfix"
 endfunction
 
 "-----------------------------------------------------------------------------"
