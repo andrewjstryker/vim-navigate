@@ -235,5 +235,6 @@ endif
 call s:ChangeState(s:state, 0) " announcing at start-up makes Vim wait for input
 
 let &cpo = s:save_cpo
+unlet s:save_cpo
 
 " vim:sw=2
