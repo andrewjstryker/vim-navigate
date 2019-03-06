@@ -217,24 +217,33 @@ if has("gui")
         \ :call <SID>ChangeState("quickfix", g:navigate_announce)<CR>
 endif
 
-" leave key mappings alone as a safe default choice (and store this locally)
-if exists("g:navigate_state")
-  let s:state = g:navigate_state
-else
-  let s:state = "normal"
-endif
+"-----------------------------------------------------------------------------"
+"
+" Initialize plugin
+"
+"-----------------------------------------------------------------------------"
 
-" define an index variable
-let s:state_index = 0
+" leave key mappings alone as a safe default choice (and store this locally)
+if exists("g:navigate_start")
+  " announcing at start-up makes Vim wait for input
+  call s:ChangeState(g:navigate_start, 0)
+else
+  call s:ChangeState("normal", 0)
+endif
 
 " tell the user about changing navigate states unless this is not wanted
 if !exists("g:navigate_announce")
   let g:navigate_announce = 1
 endif
 
-call s:ChangeState(s:state, 0) " announcing at start-up makes Vim wait for input
+"-----------------------------------------------------------------------------"
+"
+" Clean-up
+"
+"-----------------------------------------------------------------------------"
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
 
 " vim:sw=2
+"-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
