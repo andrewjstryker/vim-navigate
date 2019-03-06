@@ -174,15 +174,15 @@ endfunction
 if !hasmapto("<Plug>NextState")
   nmap <silent> <unique> <Leader>n <Plug>NextState
 endif
-noremap <unique> <script> <Plug>NavigateCycle <SID>NextState
+noremap <unique> <script> <Plug>NavigateNextState <SID>NextState
 noremap <SID>NextState :call <SID>NextState(g:navigate_announce)<CR>
 
 " (reverse) cycle through navigate states
-if !hasmapto("<Plug>ReverseNavigateCycle")
-  nmap <silent> <unique> <Leader>N <Plug>ReverseNavigateCycle
+if !hasmapto("<Plug>PreviousState")
+  nmap <silent> <unique> <Leader>N <Plug>PreviousState
 endif
-noremap <unique> <script> <Plug>ReverseNavigateCycle <SID>ReverseCycle
-noremap <SID>ReverseCycle :call <SID>ReverseCycle(g:navigate_announce)<CR>
+noremap <unique> <script> <Plug>NavigatePreviousState <SID>PreviousState
+noremap <SID>PreviousState :call <SID>PreviousState(g:navigate_announce)<CR>
 
 "-----------------------------------------------------------------------------"
 "
